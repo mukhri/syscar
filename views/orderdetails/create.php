@@ -4,10 +4,10 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model app\models\orderdetails */
+/* @var $model app\models\Orderdetails */
 
-$this->title = Yii::t('app', 'Create Orderdetails');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Orderdetails'), 'url' => ['index']];
+$this->title = 'Create Orderdetails';
+$this->params['breadcrumbs'][] = ['label' => 'Orderdetails', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="orderdetails-create">

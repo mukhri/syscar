@@ -37,8 +37,51 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
+            //['label' => 'About', 'url' => ['/site/about']],
+            //['label' => 'Contact', 'url' => ['/site/contact']],
+            Yii::$app->user->can('admin') ? (     
+                        [
+                            'label' => 'Menu Admin',
+                            'items' => [
+                                 ['label' => 'yii setting', 'url' => '#'],
+                                 '<li class="divider"></li>',
+                                 '<li class="dropdown-header">Gii</li>',
+                                 ['label' => 'gii', 'url' => ['/gii']],
+                                 '<li class="divider"></li>',
+                                 '<li class="dropdown-header">Modul Penguna</li>',
+                                ['label' => 'User', 'url' => ['/role']],
+                                ['label' => 'User', 'url' => ['/user']],
+                                ['label' => 'Pengurusan Penguna', 'url' => ['/user/admin']],
+                                ['label' => 'Tukar kata Laluan', 'url' => ['/user/account']],
+                                ['label' => 'profile', 'url' => ['/user/profile']],
+                            ],
+                        ]
+                    
+                    
+                    ):
+            Yii::$app->user->can('admin') ? (     
+                        [
+                            'label' => 'Menu Admin',
+                            'items' => [
+                                 ['label' => 'yii setting', 'url' => '#'],
+                                 '<li class="divider"></li>',
+                                 '<li class="dropdown-header">Gii</li>',
+                                 ['label' => 'gii', 'url' => ['/gii']],
+                                 '<li class="divider"></li>',
+                                 '<li class="dropdown-header">Modul Penguna</li>',
+                                ['label' => 'User', 'url' => ['/role']],
+                                ['label' => 'User', 'url' => ['/user']],
+                                ['label' => 'Pengurusan Penguna', 'url' => ['/user/admin']],
+                                ['label' => 'Tukar kata Laluan', 'url' => ['/user/account']],
+                                ['label' => 'profile', 'url' => ['/user/profile']],
+                            ],
+                        ]
+                    
+                    
+                    ):
+                    (
+                    ''
+                    ),
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/user/login']]
             ) : (
@@ -50,7 +93,10 @@ AppAsset::register($this);
                 )
                 . Html::endForm()
                 . '</li>'
-            )
+                 
+                ),
+            
+                 
         ],
     ]);
     NavBar::end();

@@ -43,10 +43,10 @@ class Productlines extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'productLine' => Yii::t('app', 'Product Line'),
-            'textDescription' => Yii::t('app', 'Text Description'),
-            'htmlDescription' => Yii::t('app', 'Html Description'),
-            'image' => Yii::t('app', 'Image'),
+            'productLine' => 'Product Line',
+            'textDescription' => 'Text Description',
+            'htmlDescription' => 'Html Description',
+            'image' => 'Image',
         ];
     }
 

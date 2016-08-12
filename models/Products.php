@@ -55,15 +55,15 @@ class Products extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'productCode' => Yii::t('app', 'Product Code'),
-            'productName' => Yii::t('app', 'Product Name'),
-            'productLine' => Yii::t('app', 'Product Line'),
-            'productScale' => Yii::t('app', 'Product Scale'),
-            'productVendor' => Yii::t('app', 'Product Vendor'),
-            'productDescription' => Yii::t('app', 'Product Description'),
-            'quantityInStock' => Yii::t('app', 'Quantity In Stock'),
-            'buyPrice' => Yii::t('app', 'Buy Price'),
-            'MSRP' => Yii::t('app', 'Msrp'),
+            'productCode' => 'Product Code',
+            'productName' => 'Product Name',
+            'productLine' => 'Product Line',
+            'productScale' => 'Product Scale',
+            'productVendor' => 'Product Vendor',
+            'productDescription' => 'Product Description',
+            'quantityInStock' => 'Quantity In Stock',
+            'buyPrice' => 'Buy Price',
+            'MSRP' => 'Msrp',
         ];
     }
 
@@ -89,5 +89,14 @@ class Products extends \yii\db\ActiveRecord
     public function getProductLine0()
     {
         return $this->hasOne(Productlines::className(), ['productLine' => 'productLine']);
+    }
+
+    /**
+     * @inheritdoc
+     * @return ProductsQuery the active query used by this AR class.
+     */
+    public static function find()
+    {
+        return new ProductsQuery(get_called_class());
     }
 }

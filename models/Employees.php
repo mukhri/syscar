@@ -53,14 +53,14 @@ class Employees extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'employeeNumber' => Yii::t('app', 'no pekerja'),
-            'lastName' => Yii::t('app', 'Last Name'),
-            'firstName' => Yii::t('app', 'First Name'),
-            'extension' => Yii::t('app', 'Extension'),
-            'email' => Yii::t('app', 'Email'),
-            'officeCode' => Yii::t('app', 'Office Code'),
-            'reportsTo' => Yii::t('app', 'Reports To'),
-            'jobTitle' => Yii::t('app', 'Job Title'),
+            'employeeNumber' => 'Employee ID',
+            'lastName' => 'Last Name',
+            'firstName' => 'First Name',
+            'extension' => 'Extension',
+            'email' => 'Email',
+            'officeCode' => 'Office Code',
+            'reportsTo' => 'Reports To',
+            'jobTitle' => 'Job Title',
         ];
     }
 

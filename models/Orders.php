@@ -35,13 +35,13 @@ class Orders extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-           // [['orderNumber', 'orderDate', 'requiredDate', 'status', 'customerNumber'], 'required'],
+            [['orderNumber', 'orderDate', 'requiredDate', 'status', 'customerNumber'], 'required'],
             [['orderNumber', 'customerNumber'], 'integer'],
             [['orderDate', 'requiredDate', 'shippedDate'], 'safe'],
             [['comments'], 'string'],
             [['status'], 'string', 'max' => 15],
             [['customerNumber'], 'exist', 'skipOnError' => true, 'targetClass' => Customers::className(), 'targetAttribute' => ['customerNumber' => 'customerNumber']],
-            //[['orderDate', 'requiredDate', 'shippedDate'], 'date','format'=>'Y-m-d'],
+            [['orderDate', 'requiredDate','shippedDate'], 'date','format'=>'Y-m-d'],
         ];
     }
 
@@ -51,13 +51,13 @@ class Orders extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'orderNumber' => Yii::t('app', 'Order Number'),
-            'orderDate' => Yii::t('app', 'Order Date'),
-            'requiredDate' => Yii::t('app', 'Required Date'),
-            'shippedDate' => Yii::t('app', 'Shipped Date'),
-            'status' => Yii::t('app', 'Status'),
-            'comments' => Yii::t('app', 'Comments'),
-            'customerNumber' => Yii::t('app', 'Customer Number'),
+            'orderNumber' => 'Order Number',
+            'orderDate' => 'Order Date',
+            'requiredDate' => 'Required Date',
+            'shippedDate' => 'Shipped Date',
+            'status' => 'Status',
+            'comments' => 'Comments',
+            'customerNumber' => 'Customer Number',
         ];
     }
 
@@ -83,14 +83,5 @@ class Orders extends \yii\db\ActiveRecord
     public function getCustomerNumber0()
     {
         return $this->hasOne(Customers::className(), ['customerNumber' => 'customerNumber']);
-    }
-
-    /**
-     * @inheritdoc
-     * @return OrdersQuery the active query used by this AR class.
-     */
-    public static function find()
-    {
-        return new OrdersQuery(get_called_class());
     }
 }

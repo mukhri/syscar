@@ -32,13 +32,13 @@ class Orderdetails extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['orderNumber', 'productCode', 'quantityOrdered', 'priceEach', 'orderLineNumber'], 'required'],
-            [['orderNumber', 'quantityOrdered', 'orderLineNumber'], 'integer'],
+            //[['orderNumber', 'productCode', 'quantityOrdered', 'priceEach', 'orderLineNumber'], 'required'],
+            [['orderNumber', 'quantityOrdered', 'orderLineNumber'], 'integer' ],
+            [['quantityOrdered', 'orderLineNumber'], 'required','on'=>'update' ],
             [['priceEach'], 'number'],
             [['productCode'], 'string', 'max' => 15],
             [['orderNumber'], 'exist', 'skipOnError' => true, 'targetClass' => Orders::className(), 'targetAttribute' => ['orderNumber' => 'orderNumber']],
             [['productCode'], 'exist', 'skipOnError' => true, 'targetClass' => Products::className(), 'targetAttribute' => ['productCode' => 'productCode']],
-            [['orderDate', 'requiredDate', 'shippedData'], 'date'],//,'format'=>'Y-M-D'],
         ];
     }
 
@@ -48,11 +48,11 @@ class Orderdetails extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'orderNumber' => Yii::t('app', 'Order Number'),
-            'productCode' => Yii::t('app', 'Product Code'),
-            'quantityOrdered' => Yii::t('app', 'Quantity Ordered'),
-            'priceEach' => Yii::t('app', 'Price Each'),
-            'orderLineNumber' => Yii::t('app', 'Order Line Number'),
+            'orderNumber' => 'Order Number',
+            'productCode' => 'Product Code',
+            'quantityOrdered' => 'Quantity Ordered',
+            'priceEach' => 'Price Each',
+            'orderLineNumber' => 'Order Line Number',
         ];
     }
 

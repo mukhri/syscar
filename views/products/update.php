@@ -3,14 +3,12 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\products */
+/* @var $model app\models\Products */
 
-$this->title = Yii::t('app', 'Update {modelClass}: ', [
-    'modelClass' => 'Products',
-]) . $model->productCode;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Products'), 'url' => ['index']];
+$this->title = 'Update Products: ' . $model->productCode;
+$this->params['breadcrumbs'][] = ['label' => 'Products', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->productCode, 'url' => ['view', 'id' => $model->productCode]];
-$this->params['breadcrumbs'][] = Yii::t('app', 'Update');
+$this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="products-update">
 

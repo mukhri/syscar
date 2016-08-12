@@ -2,8 +2,6 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-use yii\helpers\ArrayHelper;
-use app\models\Orders;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\OrderdetailsSearch */
@@ -27,21 +25,13 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'orderNumber',
-            'productCode',
-              [
-            'attribute'=>'status',
-            'value'=>'orderNumber0.status',
-            //ArrayHelper::map(\app\models\Orders::find()->asArray()->all(), 'status', 'status'),
-              'filter' => ArrayHelper::map(Orders::find()->asArray()->all(),'status','status')
-            ],
-               [
-            'attribute'=>'customerName',
-            'value'=> 'orderNumber0.customerNumber0.customerName',
-            ],
-            'orderNumber0.customerNumber0.salesRepEmployeeNumber0.lastName',
             [
             'attribute'=>'productName',
-            'value'=>'productCode0.productName'
+            'value' => 'productCode0.productName'
+            ],
+            [
+            'attribute'=>'productLine',
+            'value' => 'productCode0.productLine0.productLine'
             ],
             'quantityOrdered',
             'priceEach',

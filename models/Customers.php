@@ -56,19 +56,19 @@ class Customers extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'customerNumber' => Yii::t('app', 'Customer Number'),
-            'customerName' => Yii::t('app', 'Customer Name'),
-            'contactLastName' => Yii::t('app', 'Contact Last Name'),
-            'contactFirstName' => Yii::t('app', 'Contact First Name'),
-            'phone' => Yii::t('app', 'Phone'),
-            'addressLine1' => Yii::t('app', 'Address Line1'),
-            'addressLine2' => Yii::t('app', 'Address Line2'),
-            'city' => Yii::t('app', 'City'),
-            'state' => Yii::t('app', 'State'),
-            'postalCode' => Yii::t('app', 'Postal Code'),
-            'country' => Yii::t('app', 'Country'),
-            'salesRepEmployeeNumber' => Yii::t('app', 'Sales Rep Employee Number'),
-            'creditLimit' => Yii::t('app', 'Credit Limit'),
+            'customerNumber' => 'Customer Number',
+            'customerName' => 'Customer Name',
+            'contactLastName' => 'Contact Last Name',
+            'contactFirstName' => 'Contact First Name',
+            'phone' => 'Phone',
+            'addressLine1' => 'Address Line1',
+            'addressLine2' => 'Address Line2',
+            'city' => 'City',
+            'state' => 'State',
+            'postalCode' => 'Postal Code',
+            'country' => 'Country',
+            'salesRepEmployeeNumber' => 'Sales Rep Employee Number',
+            'creditLimit' => 'Credit Limit',
         ];
     }
 
